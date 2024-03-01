@@ -1,0 +1,165 @@
+html {
+  height: 100%;
+  background: #000080 !important; /* Navy */
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'poppins',sans-serif;
+}
+
+body {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+background-color: transparent !important;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+main{
+max-width: 500px;
+margin: auto;
+}
+#main{
+  /* glass effect*/
+  background: rgba(255, 255, 255, 0.7);
+}
+@media screen and (max-width: 768px) {
+main{
+  max-width: 300px;
+}
+.little-box{
+  max-height: 500px!important;
+  overflow-y: auto!important;
+  margin-top: 5%!important;
+  margin-bottom: 5% !important;
+}
+.users{
+  overflow-y:auto;
+  max-height: 300px;
+}
+}
+.cover{
+background-color: #1E90FF; /* DodgerBlue */
+max-height: 600px;
+overflow-y: auto;
+margin: 5% 0 5% 0;
+}
+
+#navibar {
+background-color: #00008B; /* DarkBlue */
+position: fixed;
+top: 0;
+width: 100%
+}
+
+.center-input {
+  position: relative;
+  max-width: 400px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(55px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+}
+
+.inputbox {
+  position: relative;
+  margin: 30px 0;
+  max-width: 310px;
+  border-bottom: 2px solid #fff;
+}
+.inputbox label {
+  position: absolute;
+  top: 0; /* Change this from 50% to 0 */
+  left: 5px;
+  transform: translateY(0); /* Change this from -50% to 0 */
+  color: #fff;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+input:focus ~ label, 
+input:valid ~ label {
+  top: -5px;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 35px 0 5px;
+  color: #fff !important;
+}
+
+.inputbox ion-icon {
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2rem;
+  top: 20px;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px !important;
+  background-color: rgb(255, 255,255, 1);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+button:hover {
+background-color: rgb(255, 255,255, 0.5);
+}
+
+.register {
+  font-size: 0.9rem;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.register p a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+bottom: 0;
+width: 100%;
+min-height: 50px;
+padding: 20px 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.footer p {
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+}

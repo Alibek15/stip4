@@ -1,0 +1,81 @@
+html {
+  height: 100%;
+  background: #87CEEB !important; /* SkyBlue */
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'poppins',sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: transparent !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  main{
+    max-width: 300px;
+  }
+  .little-box{
+    max-height: 500px!important;
+    overflow-y: auto!important;
+    margin-top: 5%!important;
+    margin-bottom: 5% !important;
+  }
+  .users{
+    overflow-y:auto;
+    max-height: 300px;
+  }
+  #card-size{
+    width: 100%!important;
+    height: 100%!important;
+  }
+  #eventList{
+    display:block !important;;
+  }
+}
+.cover{
+  background-color: #ADD8E6; /* LightBlue */
+  max-height: 600px;
+  overflow-y: auto;
+  margin: 5% 0 5% 0;
+}
+#navibar {
+  background-color: #1E90FF; /* DodgerBlue */
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+.footer {
+position: fixed;
+bottom: 0;
+width: 100%;
+min-height: 50px;
+padding: 20px 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.footer p {
+  color: #000;
+  width: 100%;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+#card-size{
+width: 29%;
+height: 40%;
+}
+#eventList{
+display: flex;
+flex-wrap: wrap;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        var timeleft = 150;
+        var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("quizForm").submit();
+            }
+            var minutes = Math.floor(timeleft / 60);
+            var seconds = timeleft % 60;
+            document.getElementById("countdown").innerHTML = minutes + " minutes " + seconds + " seconds remaining";
+            timeleft -= 1;
+        }, 1000);
+    
+        function stopTimerAndShowResults() {
+            clearInterval(downloadTimer);
+            document.getElementById("resultsModal").classList.remove("hidden");
+        }
+    </script>
+<body class="bg-gray-200">
+    <nav class="flex items-center  p-4 bg-blue-500 text-white ">
+        <a href="/main" class="text-lg font-bold mr-4">Home</a>
+        <a href="/quizPass/quizSpace" class="text-lg font-bold">Space Quiz</a>
+    </nav>
+    <div class="container mx-auto px-4 py-5">
+        <h1 class="text-2xl mb-4">Quiz</h1>
+        <p id="countdown" class="mt-4"></p>
+        
+        <form id="quizForm" class="mt-4" action="/submitQuiz" method="post" onsubmit="stopTimerAndShowResults();">
+            <% questions.forEach((question, index) => { %>
+                <div class="mb-4 p-4 bg-white rounded shadow-md">
+                    <p class="font-bold"><%= question.question %></p>
+                    <% question.answers.forEach((answer, aIndex) => { %>
+                        <div>
+                            <input type="radio" id="q<%= index %>a<%= aIndex %>" name="q<%= index %>" value="<%= aIndex %>" class="mr-2">
+                            <label for="q<%= index %>a<%= aIndex %>"><%= answer %></label>
+                        </div>
+                    <% }); %>
+                </div>
+            <% }); %>
+            <input type="submit" value="Submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        </form>
+        
+    </div>
+</body>
+</html>

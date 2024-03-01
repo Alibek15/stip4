@@ -1,0 +1,75 @@
+<!-- views/nytimes.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Times Articles</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!--views/nav.ejs-->
+<nav class="navbar navbar-expand-lg fixed-top" id="navibar" style="background: linear-gradient(to right, #bdc3c7, #2c3e50);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/main">News</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/quiz">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/nytimes">NY Times</a>
+                </li>
+            </ul>
+           
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main id="main" class="container">
+    <h1 class="text-center mt-5">New York Times Articles</h1>
+    <div class="row mt-4">
+        <% if (articles && articles.length > 0) { %>
+            <% articles.forEach((article, index) => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <!-- Carousel -->
+                        <div id="carouselExampleIndicators<%= index %>" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <% if (article.image) { %>
+                                    <div class="carousel-item active">
+                                        <img src="<%= article.image %>" class="d-block w-100" alt="<%= article.title %>">
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <!-- /Carousel -->
+                        <div class="card-body">
+                            <h5 class="card-title text-dark"><%= article.title %></h5>
+                            <p class="card-text"><%= article.abstract %></p>
+                            <p class="card-text"><small class="text-muted">Published on <%= article.published_date %></small></p>
+                            <a href="<%= article.url %>" class="btn btn-primary">Read More</a>
+                        </div>  
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</main>
+    <%- include("./partials/footer.ejs") %>
+    <!-- Include Bootstrap JS -->
+    <script src="/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

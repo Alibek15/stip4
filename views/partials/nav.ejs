@@ -1,0 +1,42 @@
+<!--views/nav.ejs-->
+<nav class="navbar navbar-expand-lg fixed-top" id="navibar" style="background: linear-gradient(to right, #bdc3c7, #2c3e50);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/main">News</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/quizPass">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/nytimes">NY Times</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/exchange-rate">Exchange Rate</a>
+                  </li>
+                
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: white; border: none; border-radius: 0;">
+                        <span id="lang" class="fi fi-gb"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="background-color: white; border-radius: 0;">
+                        <li><button class="dropdown-item" onclick="changeLang('en')"><span class="fi fi-gb"></span> English</button></li>
+                        <li><button class="dropdown-item" onclick="changeLang('ru')"><span class="fi fi-ru"></span> Russian</button></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <%= user.username %>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
